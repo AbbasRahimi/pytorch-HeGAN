@@ -4,7 +4,7 @@ from torch.utils.data import Dataset
 
 import logging
 import numpy as np
-from args import args
+from src.args import args
 
 
 class DBLPDataset():

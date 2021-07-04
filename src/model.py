@@ -9,6 +9,7 @@ import torch.nn as nn
 import sys
 
 sys.path.append('.')
+sys.argv=['']
 from torch.utils.data import DataLoader
 from src.args import args
 from src.dataset import *
@@ -16,6 +17,7 @@ from src.components import *
 from src.evaluation import dblp_evaluation
 
 import math
+
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')

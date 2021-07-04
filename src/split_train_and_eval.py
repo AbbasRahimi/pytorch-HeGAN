@@ -1,5 +1,5 @@
 """
-按照 8:2 的比例划分训练集和测试集
+Divide the training set and test set according to the ratio of 8:2
 """
 import random
 import os

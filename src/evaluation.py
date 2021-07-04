@@ -1,8 +1,8 @@
 from typing import Dict
 from torch.nn import Embedding
-from components import *
-from args import args
-from dataset import read_graph
+from src.components import *
+from src.args import args
+from src.dataset import read_graph
 import torch
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm

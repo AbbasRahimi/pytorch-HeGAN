@@ -103,7 +103,7 @@ class HeGAN(object):
                     discriminator_loss_neg = -torch.mean(torch.log(1-prob_neg))
                     discriminator_loss_fake = -torch.mean(torch.log(1-prob_fake))
                     """
-                    if batch_idx <= 1:
+                    if batch_idx <= 1:    
                         print(prob_fake)
                         print(discriminator_loss_pos, discriminator_loss_neg, discriminator_loss_fake)
                     """

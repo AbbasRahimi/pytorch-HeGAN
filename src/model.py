@@ -10,10 +10,10 @@ import sys
 
 sys.path.append('.')
 from torch.utils.data import DataLoader
-from args import args
-from dataset import *
-from components import *
-from evaluation import dblp_evaluation
+from src.args import args
+from src.dataset import *
+from src.components import *
+from src.evaluation import dblp_evaluation
 
 import math
 

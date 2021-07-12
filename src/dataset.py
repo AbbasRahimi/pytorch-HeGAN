@@ -8,7 +8,7 @@ from src.args import args
 
 
 class DBLPDataset():
-    def __init__(self, graph_path='../data/DBLP/dblp_triple.dat'):
+    def __init__(self, graph_path='../data/FAMILY/family_triple.dat'):
         logging.info("Loading data from dataset...")
         self.node_size, self.relation_size, self.graph = read_graph(graph_path)
         logging.info("Loading data finished, total {} nodes, {} relations.".format(self.node_size, self.relation_size))

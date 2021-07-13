@@ -38,7 +38,7 @@ class dblp_evaluation:
             src_idx = data[0].cuda()
             tgt_idx = data[1].cuda()
             label = data[2]
-            print("src:", data[0], "trg:", data[1], "label:", label, "\n")
+            print("src:", data[0], "\ntrg:", data[1], "\nlabel:", label)
             src_embed = node_embed(src_idx)  # [bs, 64]
             tgt_embed = node_embed(tgt_idx)  # [bs, 64]
             tgt_embed = tgt_embed.reshape((-1, 1, node_embed_size))  # [bs, 1, 64]

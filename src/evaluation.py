@@ -38,7 +38,7 @@ class dblp_evaluation:
             src_idx = data[0].cuda()
             tgt_idx = data[1].cuda()
             label = data[2]
-
+            print("src:", data[0], "trg:", data[1], "label:", label, "\n")
             src_embed = node_embed(src_idx)  # [bs, 64]
             tgt_embed = node_embed(tgt_idx)  # [bs, 64]
             tgt_embed = tgt_embed.reshape((-1, 1, node_embed_size))  # [bs, 1, 64]
@@ -46,7 +46,9 @@ class dblp_evaluation:
             score = torch.mul(temp, tgt_embed).sum(2)
             # predict = torch.max(score, 1)[1]
             predict = torch.argmax(score, dim=1).cpu()
+            print("predict: ", predict)
             correct += predict.eq(label).sum().item()
+
             total += predict.size(0)
 
         return correct / total

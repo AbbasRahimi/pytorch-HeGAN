@@ -4,7 +4,8 @@ Divide the training set and test set according to the ratio of 8:2
 import random
 import os
 
-dblp_file = '../data/DBLP/dblp_triple.dat'
+family_file = '/../data/FAMILY/family_triple.dat'
+# dblp_file = '../data/DBLP/dblp_triple.dat'
 # yelp_file = '../data/yelp_triple.dat'
 
 
@@ -35,6 +36,6 @@ def split_lines(filename, output_dir, output_name):
     f.write(test_str)
     f.close()
 
-
-split_lines(dblp_file, 'DBLP', 'dblp')
-# split_lines(yelp_file, 'yelp_lp', 'yelp_ub')
+if __name__ == '__main__':
+    split_lines(family_file, 'FAMILY', 'family')
+    # split_lines(yelp_file, 'yelp_lp', 'yelp_ub')

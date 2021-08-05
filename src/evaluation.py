@@ -33,6 +33,9 @@ class dblp_evaluation:
         correct = 0
         total = 0
         dataloader = DataLoader(self.dataset, shuffle=True, batch_size=self.batch_size)
+        a, b, c = self.dataset.__getitem__()
+        for i, j, k in a, b, c:
+            print("____source:", i, "target:", j, "label:", k)
         iterator = tqdm(dataloader, desc="Evaluation")
         for (batch_idx, data) in (enumerate(iterator)):
             src_idx = data[0].cuda()

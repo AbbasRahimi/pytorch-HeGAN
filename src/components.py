@@ -131,10 +131,12 @@ class Generator(nn.Module):
         return loss
 
     def generate_fake_nodes(self, node_idx, relation_idx):
+        print("-----node_idx:", len(node_idx), "relation_idx:", len(relation_idx))
         node_embed = self.node_embed(node_idx)
         node_embed = node_embed.reshape((-1, 1, self.args.node_embed_size))
         relation_embed = self.relation_embed(relation_idx)
         relation_embed = relation_embed.reshape((-1, self.args.node_embed_size, self.args.node_embed_size))
+        print("+++++node_embed:", len(node_embed), "relation_embed:", len(relation_embed))
         temp = torch.matmul(node_embed, relation_embed)
 
         # add noise

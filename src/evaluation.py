@@ -33,9 +33,7 @@ class dblp_evaluation:
         correct = 0
         total = 0
         dataloader = DataLoader(self.dataset, shuffle=True, batch_size=self.batch_size)
-        a, b, c = self.dataset.__getitem__()
-        for i, j, k in a, b, c:
-            print("____source:", i, "target:", j, "label:", k)
+
         iterator = tqdm(dataloader, desc="Evaluation")
         for (batch_idx, data) in (enumerate(iterator)):
             src_idx = data[0].cuda()
@@ -77,7 +75,7 @@ class EvaluationDataset(Dataset):
 def do_evaluation(model_path='../model'):
     # args.pretrain_embed = np.random.rand(args.node_size, args.node_embed_size)
     discriminator = Discriminator(args, model_path=model_path).cuda()
-    node_size, relation_size, graph = read_graph('../data/FAMILY/family_triple.dat')
+    node_size, relation_size, graph = read_graph('../data/YELP/yelp_triple.dat')
     evaluator = dblp_evaluation(graph)
     evaluator.link_prediction(discriminator.node_embed, discriminator.relation_embed)
 

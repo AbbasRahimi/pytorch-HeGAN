@@ -40,7 +40,7 @@ class HeGAN(object):
         discriminator = Discriminator(self.args, model_path)
         self.discriminator = discriminator.cuda()
 
-        node_size, relation_size, graph = read_graph('../data/FAMILY/family.test_0.2')
+        node_size, relation_size, graph = read_graph('../data/YELP/yelp.test_0.2')
         self.evaluator = dblp_evaluation(graph)
 
         self.name = "HeGAN-" + datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S')
@@ -63,7 +63,7 @@ class HeGAN(object):
     def train(self):
         writer = SummaryWriter("./log/" + self.name)
 
-        dblp_dataset = DBLPDataset(graph_path='../data/FAMILY/family.train_0.8')
+        dblp_dataset = DBLPDataset(graph_path='../data/YELP/yelp.train_0.8')
         gen_data_loader = DataLoader(dblp_dataset.generator_dataset, shuffle=True, batch_size=self.args.batch_size,
                                      num_workers=8, pin_memory=True)
         dis_data_loader = DataLoader(dblp_dataset.discriminator_dataset, shuffle=True, batch_size=self.args.batch_size,

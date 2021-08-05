@@ -2,7 +2,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--name', type=str, help='Model name')
-parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
+parser.add_argument('--batch_size', type=int, default=128, help='Batch size')
 parser.add_argument('--epoch', type=int, default=5, help='Training epoch')
 parser.add_argument('--epoch_g', type=int, default=1, help='Generator epoch in each training epoch')
 parser.add_argument('--epoch_d', type=int, default=1, help='Discriminator epoch in each training epoch')
